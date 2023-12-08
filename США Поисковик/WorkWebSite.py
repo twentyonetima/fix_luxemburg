@@ -30,6 +30,7 @@ def parsing(url, type_list, soup):
     value = []
     all_dictionary = []
     data_links = []
+    count_organization = 0
 
     list_data = soup.select('.views-field-field-display-title')
 
@@ -52,8 +53,6 @@ def parsing(url, type_list, soup):
         time.sleep(2)
         sub_soup = BeautifulSoup(response.text, 'html.parser')
 
-        count_organization = 0
-        count_organization += 1
         print("Number organization", count_organization)
 
         # Find the name_organization element, handle None case
@@ -68,18 +67,17 @@ def parsing(url, type_list, soup):
         print()
         for k in range(len(value_items)):
             template = value_items[k].text
-            print("Template:", template)  # Add this line for debugging
+            # print("Template:", template)
             template = template.split("\n")
 
             for x in range(len(template)):
+                template[x] = template[x].replace('\r', '').replace('\xa0', '').replace('\xa0\r', '').replace(' \\xa', '').replace('\xa0\xa0 \\xa0', '')
+
                 items = (template[x].split(":"))
 
-                print("Items:", items)
+                # print("Items:", items, "Lens:", len(items[0]))
 
-            for x in range(len(template)):
-                items = (template[x].split(":"))
-
-                if x != 0 and x <= 1:
+                if x != 0 and x <= 2 and len(items[0]) > 0:
                     if len(items) == 1 and len(template[x - 1].split(":")) == 1:
                         items_address = (template[x - 1] + " " + template[x])
                         key.append("legal_entity_address")
@@ -104,9 +102,9 @@ def parsing(url, type_list, soup):
                     elif items[0] == "Website":
                         key.append("links")
                         if items[1] == ' http':
-                            value.append(['http' + items[2], ])
+                            value.append(['http:' + items[2], ])
                         elif items[1] == ' https':
-                            value.append(['https' + items[2], ])
+                            value.append(['https:' + items[2], ])
                         else:
                             value.append([items[1], ])
 
@@ -132,7 +130,7 @@ def parsing(url, type_list, soup):
                 json_dictionary[key[s]] = value[s]
                 if count == len(key) + 1:
                     json_dictionary['type'] = type_list
-                    json_dictionary['source'] = 'https://www.sec.gov/enforce/public-alerts/impersonators-genuine-firms/12-west-capital-management'
+                    json_dictionary['source'] = absolute_url
                     json_dictionary['Country'] = "United States"
                     print(json_dictionary)
                     all_dictionary.append(json_dictionary)
@@ -140,6 +138,7 @@ def parsing(url, type_list, soup):
                     count = 0
                     value = []
                     key = []
+        count_organization += 1
         # page_number += 1
 
     return all_dictionary
