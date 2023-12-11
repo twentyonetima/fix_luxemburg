@@ -22,7 +22,7 @@ def test(url, type_list):
     all_dictionary = []
     page_number = 1
 
-    while page_number < 2:
+    while page_number < 80:
         url_with_page = f"{url}?page={page_number}"
         content = get_dynamic_page_content(url_with_page)
         soup = BeautifulSoup(content, 'html.parser')
