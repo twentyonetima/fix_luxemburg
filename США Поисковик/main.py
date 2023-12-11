@@ -30,4 +30,4 @@ soup = BeautifulSoup(page_source, 'html.parser')
 test = WorkWebSite.parsing(url, "black_list", soup)
 
 # Save the result to a JSON file
-save = SaveHdd.save_json(test)
+# save = SaveHdd.save_json(test)

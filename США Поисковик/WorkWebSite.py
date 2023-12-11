@@ -3,6 +3,9 @@ import requests
 from bs4 import BeautifulSoup
 from googletrans import Translator
 from urllib.parse import urljoin
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+import SaveHdd
 
 
 def change_using(soup, element_name):

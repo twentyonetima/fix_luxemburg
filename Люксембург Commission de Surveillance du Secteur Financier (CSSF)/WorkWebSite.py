@@ -1,5 +1,6 @@
 import time
-
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import requests
 from bs4 import BeautifulSoup
 from googletrans import Translator
@@ -158,3 +159,20 @@ def test(url, soup, type_list):
         time.sleep(3)
 
     return all_dictionary
+
+
+if __name__ == "__main__":
+    chrome_options = Options()
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--headless=new")
+    driver = webdriver.Chrome()
+    url = "https://www.cssf.lu/en/warnings/"
+    driver.get(url)
+
+    # Get the initial page content using requests and BeautifulSoup
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    # Call the test function from WorkWebsite.py
+    result = test(url, soup, "black_list")
+    # save = SaveHdd.save_json(result)
