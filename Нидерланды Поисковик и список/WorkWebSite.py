@@ -1,55 +1,60 @@
 import time
+import requests
+from bs4 import BeautifulSoup
 from googletrans import Translator
-from selenium.webdriver.common.by import By
 
 
-def change_using(driver, element_name, ):
+def change_using(html_content, element_name):
     """
     Метод перехода по ссылкам
+    :param html_content: HTML content of the page
     :param element_name: имя селектора
-    :param driver:
-    :return:
+    :return: List of elements
     """
-
-    find_elements = driver.find_elements(By.CSS_SELECTOR, element_name)
-
+    soup = BeautifulSoup(html_content, 'html.parser')
+    find_elements = soup.select(element_name)
     return find_elements
 
 
-def test(url, driver, type_list):
+def test(url, type_list, start_page=1):
     """
-    Функция тестирования  парсера и дальнейщего запуска
-    :param drivers:
-    :return:
+    Функция тестирования парсера и дальнейшего запуска
+    :param url: URL of the page
+    :param type_list: Type list
+    :param start_page: Starting page number
+    :return: List of dictionaries
     """
     translator = Translator()
     json_dictionary = {}
-    all_dictonary = []
-    link_number = 0
-    page_number = 1
+    all_dictionary = []
+    key = []
+    value = []
+
+    session = requests.Session()
+    page_number = start_page
+    response = session.get(url)
     time.sleep(3)
-    buttn_click = driver.find_element(By.CSS_SELECTOR, ".js-cookie-consent-all-btn")
-    buttn_click.click()
 
-    while page_number < 162:
-        time.sleep(3)
-        value = []
-        key = []
-        all_links = []
-        links = change_using(driver, ".register-result__title a")
+    # Handle cookie consent if needed
+    cookie_consent_button = session.cookies.get('cookie_consent_button')
+    if cookie_consent_button:
+        session.cookies.set('cookie_consent_button', 'true')
+    print()
+    while True:
+        soup = BeautifulSoup(response.content, 'html.parser')
+        links = change_using(response.content, ".register-result__title a")
+        print()
+        for i, link in enumerate(links):
+            link_url = link['href']
+            print(link_url)
 
-        for link in links:
-            all_links.append(link.get_attribute("href"))
+            link_response = session.get(link_url)
+            link_soup = BeautifulSoup(link_response.content, 'html.parser')
 
-        for i in range(len(all_links)):
-            driver.get(all_links[link_number])
-            print(link_number)
-            link_number += 1
-            # time.sleep(1)
-            data = driver.find_elements(By.CSS_SELECTOR, ".page-meta__date")
-            keys = driver.find_elements(By.CSS_SELECTOR, ".label")
-            values = driver.find_elements(By.CSS_SELECTOR, ".value")
-            contacts_list = driver.find_elements(By.CSS_SELECTOR, ".contact-details__address li span")
+            data = link_soup.select(".page-meta__date")
+            keys = link_soup.select(".label")
+            values = link_soup.select(".value")
+            contacts_list = link_soup.select(".contact-details__address li span")
             for contact in range(len(contacts_list)):
                 if contact % 2 == 0:
                     if contacts_list[contact].text == "Adress:":
@@ -101,19 +106,23 @@ def test(url, driver, type_list):
                             'source'] = f"https://www.dnb.nl/en/public-register/?p={str(page_number)}&l=20"
                         json_dictionary['Country'] = 'Netherlands'
                         print(json_dictionary)
-                        all_dictonary.append(json_dictionary)
+                        all_dictionary.append(json_dictionary)
                         json_dictionary = {}
-                        count = 0
 
-        page_number += 1
-        link_number = 0
-        print("Page number", page_number)
-        driver.get(url)
+            # Move to the next page
+        next_button = soup.select_one('.pagination__item--next-page button')
+        if not next_button:
+            break
+        next_url = next_button['onclick'].split("'")[1]
+        response = session.get(next_url)
         time.sleep(3)
-        count_click = 1
-        while count_click != page_number:
-            time.sleep(2)
-            driver.execute_script("return document.querySelector('.pagination__item--next-page button').click()")
-            count_click += 1
+        page_number += 1
 
-    return all_dictonary
+    return all_dictionary
+
+
+if __name__ == "__main__":
+    url = "https://www.dnb.nl/en/public-register/?p=1&l=20"
+    type_list = "black_list"
+    result = test(url, type_list)
+    print(result)
