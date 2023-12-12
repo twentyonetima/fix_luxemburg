@@ -1,24 +1,51 @@
 import time
-import re
-import requests
-from bs4 import BeautifulSoup
+from selenium.webdriver.support import expected_conditions as EC
+
+
 from googletrans import Translator
+from selenium.common import TimeoutException
+from selenium.webdriver.common.by import By
+import re
+
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-def change_using(html_content, element_name):
-    soup = BeautifulSoup(html_content, 'html.parser')
-    find_elements = soup.select(element_name)
+def change_using(driver, element_name, ):
+    """
+    Метод перехода по ссылкам
+    :param element_name: имя селектора
+    :param driver:
+    :return:
+    """
+
+    find_elements = driver.find_elements(By.CSS_SELECTOR, element_name)
+
     return find_elements
 
 
-def click_button(soup, name_button, times=None):
-    time.sleep(times)
-    button = soup.select_one(name_button)
+def click_button(driver, name_button, times=None):
+    """
+    Метод клика по кнопке
+    :param name_button: имя кнопки
+    :param times: время паузы
+    :param driver: ссылка для клика
+    :return: 
+    """""
+    button = None
+
+    if name_button:
+        time.sleep(times)
+        button = driver.find_element(By.CSS_SELECTOR, name_button)
     print('Click')
     button.click()
 
 
-def test(url, type_list):
+def test(url, driver, type_list):
+    """
+    Функция тестирования парсинга
+    :param drivers:
+    :return:
+    """
     translator = Translator()
     read_files = []
     json_dictionary = {}
@@ -28,17 +55,11 @@ def test(url, type_list):
     data_published_list = []
     page_number = 0
 
-    # Download the HTML content using requests
-    response = requests.get(url)
-    html_content = response.content
-
-    soup = BeautifulSoup(html_content, 'html.parser')
-
-    click_button(soup, ".coi-banner__accept", 3)
+    click_button(driver, ".coi-banner__accept", 3)
     time.sleep(3)
 
-    odd = change_using(html_content, ".odd")
-    even = change_using(html_content, ".even")
+    odd = change_using(driver, ".odd")
+    even = change_using(driver, ".even")
     all_list = odd + even
     all_date = []
     count_data = 0
@@ -47,10 +68,10 @@ def test(url, type_list):
         time.sleep(3)
         for i in range(len(all_list)):
             # Re-find the elements inside the loop
-            all_list = change_using(html_content, ".odd") + change_using(html_content, ".even")
+            all_list = change_using(driver, ".odd") + change_using(driver, ".even")
 
             for j in range(3):
-                all_date.append(all_list[i].select("td")[j].text)
+                all_date.append(all_list[i].find_elements(By.CSS_SELECTOR, "td")[j].text)
         print(all_date)
         for k in range(len(all_date)):
 
@@ -114,14 +135,17 @@ def test(url, type_list):
         key.clear()
         value.clear()
         all_date.clear()
-        # Clicking the "Next" button
+            # Clicking the "Next" button
         next_button_selector = ".pagination .next a"
-        click_button(soup, next_button_selector, 3)
+        click_button(driver, next_button_selector, 3)
 
-        # Download the new HTML content for the next page
-        response = requests.get(url)
-        html_content = response.content
-        soup = BeautifulSoup(html_content, 'html.parser')
+        # Wait for the new page to load
+        try:
+            WebDriverWait(driver, 10).until(
+                EC.url_changes(url)
+            )
+        except TimeoutException:
+            print("Timed out waiting for page to load")
 
         # Increment the page number
         page_number += 1
@@ -134,12 +158,3 @@ def remove_parentheses(input_string):
     # Remove "(" and ")"
     cleaned_string = input_string.replace("(", "").replace(")", "")
     return cleaned_string
-
-
-if __name__ == "__main__":
-    import SaveHdd
-
-    url = "https://www.finanssivalvonta.fi/en/registers/warning-lists/warnings-concerning-unauthorised-service-providers/"
-    test_result = test(url, "black_list")
-    save = SaveHdd.save_json(test_result)
-
