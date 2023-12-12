@@ -1,51 +1,24 @@
 import time
-from selenium.webdriver.support import expected_conditions as EC
-
-
-from googletrans import Translator, constants
-from selenium.common import TimeoutException
-from selenium.webdriver.common.by import By
 import re
+import requests
+from bs4 import BeautifulSoup
+from googletrans import Translator
 
-from selenium.webdriver.support.wait import WebDriverWait
 
-
-def change_using(driver, element_name, ):
-    """
-    Метод перехода по ссылкам
-    :param element_name: имя селектора
-    :param driver:
-    :return:
-    """
-
-    find_elements = driver.find_elements(By.CSS_SELECTOR, element_name)
-
+def change_using(html_content, element_name):
+    soup = BeautifulSoup(html_content, 'html.parser')
+    find_elements = soup.select(element_name)
     return find_elements
 
 
-def click_button(driver, name_button, times=None):
-    """
-    Метод клика по кнопке
-    :param name_button: имя кнопки
-    :param times: время паузы
-    :param driver: ссылка для клика
-    :return: 
-    """""
-    button = None
-
-    if name_button:
-        time.sleep(times)
-        button = driver.find_element(By.CSS_SELECTOR, name_button)
+def click_button(soup, name_button, times=None):
+    time.sleep(times)
+    button = soup.select_one(name_button)
     print('Click')
     button.click()
 
 
-def test(url, driver, type_list):
-    """
-    Функция тестирования парсинга
-    :param drivers:
-    :return:
-    """
+def test(url, type_list):
     translator = Translator()
     read_files = []
     json_dictionary = {}
@@ -55,26 +28,30 @@ def test(url, driver, type_list):
     data_published_list = []
     page_number = 0
 
-    click_button(driver, ".coi-banner__accept", 3)
+    # Download the HTML content using requests
+    response = requests.get(url)
+    html_content = response.content
+
+    soup = BeautifulSoup(html_content, 'html.parser')
+
+    click_button(soup, ".coi-banner__accept", 3)
     time.sleep(3)
 
-
-    odd = change_using(driver, ".odd")
-    even = change_using(driver, ".even")
+    odd = change_using(html_content, ".odd")
+    even = change_using(html_content, ".even")
     all_list = odd + even
     all_date = []
-
-    element = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, '/html/body/main/div/div[2]/div[2]/article/div[2]/div/div/div/div[1]/div[1]/div/label/select/option[4]'))
-    )
-    element.click()
-    time.sleep(3)
-    for i in all_list:
-        for j in range(3):
-            all_date.append(i.find_elements(By.CSS_SELECTOR, "td")[j].text)
     count_data = 0
 
-    while page_number < 1:
+    while page_number < 21:
+        time.sleep(3)
+        for i in range(len(all_list)):
+            # Re-find the elements inside the loop
+            all_list = change_using(html_content, ".odd") + change_using(html_content, ".even")
+
+            for j in range(3):
+                all_date.append(all_list[i].select("td")[j].text)
+        print(all_date)
         for k in range(len(all_date)):
 
             if count_data == 0:
@@ -100,6 +77,8 @@ def test(url, driver, type_list):
                 else:
                     if url:
                         print(url)
+                        key.append("name")
+                        value.append(url[0])
                         key.append("links")
                         value.append([url[0], ])
                     else:
@@ -132,27 +111,21 @@ def test(url, driver, type_list):
                     all_dictonary.append(json_dictionary)
                     json_dictionary = {}
                     count = 0
-
-
+        key.clear()
+        value.clear()
+        all_date.clear()
         # Clicking the "Next" button
         next_button_selector = ".pagination .next a"
-        click_button(driver, next_button_selector, 3)
+        click_button(soup, next_button_selector, 3)
 
-        # Wait for the new page to load
-        try:
-            WebDriverWait(driver, 10).until(
-                EC.url_changes(url)
-            )
-        except TimeoutException:
-            print("Timed out waiting for page to load")
+        # Download the new HTML content for the next page
+        response = requests.get(url)
+        html_content = response.content
+        soup = BeautifulSoup(html_content, 'html.parser')
 
         # Increment the page number
         page_number += 1
         print("Page number", page_number)
-
-        # click_button(driver, ".paginate_button next", 3)
-        # print("click")
-        # time.sleep(3)
 
     return all_dictonary
 
@@ -161,3 +134,12 @@ def remove_parentheses(input_string):
     # Remove "(" and ")"
     cleaned_string = input_string.replace("(", "").replace(")", "")
     return cleaned_string
+
+
+if __name__ == "__main__":
+    import SaveHdd
+
+    url = "https://www.finanssivalvonta.fi/en/registers/warning-lists/warnings-concerning-unauthorised-service-providers/"
+    test_result = test(url, "black_list")
+    save = SaveHdd.save_json(test_result)
+

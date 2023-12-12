@@ -32,34 +32,41 @@
         "Country": "Finland"
     },
     {
+        "name": "https://bothnia-international.eu/en/index.html",
         "links": [
             "https://bothnia-international.eu/en/index.html"
         ],
         "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством, а компания помирает информация о страховой компании Botnia International.",
-        "date_publish": "31 October 2022",
         "type": "black_list",
         "Country": "Finland"
     },
     {
+        "date_publish": "31 October 2022",
+        "name": "https://grinderpartnersoy.com",
         "links": [
             "https://grinderpartnersoy.com"
         ],
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством, и компания неправильно выпускает информацию о финской компании.",
-        "date_publish": "13 July 2023",
         "type": "black_list",
         "Country": "Finland"
     },
     {
+        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством, и компания неправильно выпускает информацию о финской компании.",
+        "date_publish": "13 July 2023",
         "name": "Nuibilo",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
         "links": [
             "Nuibilo.com"
         ],
         "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством.",
+        "date_publish": "22 March 2023",
         "type": "black_list",
         "Country": "Finland"
     },
     {
-        "date_publish": "22 March 2023",
+        "name": "www.equityglobalsinc.com",
         "links": [
             "www.equityglobalsinc.com"
         ],
@@ -92,196 +99,365 @@
     },
     {
         "links": [
-            "FX"
+            "https://hashbittraders.com/register/"
         ],
         "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством.",
-        "date_publish": "11 August 2023",
-        "name": "Lucreberg.com",
-        "type": "black_list",
-        "Country": "Finland"
-    },
-    {
-        "date_publish": "4 May 2023",
-        "name": "Stockxmine",
-        "links": [
-            "https://www.stockxmine.com/"
-        ],
-        "type": "black_list",
-        "Country": "Finland"
-    },
-    {
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством.",
-        "date_publish": "7 February 2023",
-        "name": "Binetrix",
-        "type": "black_list",
-        "Country": "Finland"
-    },
-    {
-        "links": [
-            "https://binetrix.com/"
-        ],
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством.",
-        "date_publish": "30 November 2022",
-        "type": "black_list",
-        "Country": "Finland"
-    },
-    {
-        "links": [
-            "https://bothnia-international.eu/en/index.html"
-        ],
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством, а компания помирает информация о страховой компании Botnia International.",
-        "date_publish": "31 October 2022",
-        "type": "black_list",
-        "Country": "Finland"
-    },
-    {
-        "links": [
-            "https://grinderpartnersoy.com"
-        ],
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством, и компания неправильно выпускает информацию о финской компании.",
-        "date_publish": "13 July 2023",
-        "type": "black_list",
-        "Country": "Finland"
-    },
-    {
-        "name": "Nuibilo",
-        "links": [
-            "Nuibilo.com"
-        ],
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством.",
-        "type": "black_list",
-        "Country": "Finland"
-    },
-    {
-        "date_publish": "22 March 2023",
-        "links": [
-            "www.equityglobalsinc.com"
-        ],
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством.",
-        "type": "black_list",
-        "Country": "Finland"
-    },
-    {
-        "date_publish": "2 February 2023",
-        "name": "Phoenixfoundationoy.com",
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством, и компания неправильно выпускает информацию о финской компании.",
-        "type": "black_list",
-        "Country": "Finland"
-    },
-    {
-        "date_publish": "18 November 2022",
-        "name": "https://www.summa-capitaloy.com/",
-        "links": [
-            "https://www.summa-capitaloy.com/"
-        ],
-        "type": "black_list",
-        "Country": "Finland"
-    },
-    {
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством, и компания неправильно выпускает информацию о финской компании.",
         "date_publish": "22 September 2022",
-        "name": "Interestverse",
+        "name": "https://hashbittraders.com/register/",
         "type": "black_list",
         "Country": "Finland"
     },
     {
+        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством.",
+        "date_publish": "13 April 2022",
+        "name": "COINIEXBIT",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "links": [
+            "https://coiniexbit.com/about-n/"
+        ],
+        "remarks": "У Finansinspektionen есть основания подозревать, что компании не существует.",
+        "date_publish": "1 April 2022",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "name": "https://buxineassets.com/",
+        "links": [
+            "https://buxineassets.com/"
+        ],
+        "remarks": "FIN-FSA имеет причина подозревать, что Buxine Assets предоставляет инвестиционные услуги финансовыми инструментами как в Финляндии, так и на трансграничной основе без соответствующего разрешения.",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "date_publish": "17 March 2022",
+        "name": "https://www.sortbend.com/",
+        "links": [
+            "https://www.sortbend.com/"
+        ],
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством.",
+        "date_publish": "20 October 2021",
+        "name": "Fintrust Capital Ltd",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "8 July 2022",
+        "name": "www.corpmooninvestments.com",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "links": [
+            "www.corpmooninvestments.com"
+        ],
+        "remarks": "FIN-FSA имеет причина подозревать, что компания предоставляет инвестиционные услуги финансовыми инструментами как в Финляндии, так и на трансграничной основе без соответствующего разрешения.",
+        "date_publish": "9 April 2022",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "name": "https://www.cryptobronzinvestment.com",
+        "links": [
+            "https://www.cryptobronzinvestment.com"
+        ],
+        "remarks": "FIN-FSA имеет причина подозревать, что компания предоставляет инвестиционные услуги финансовыми инструментами как в Финляндии, так и на трансграничной основе без соответствующего разрешения.",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "date_publish": "1 April 2022",
+        "name": "Coinrexbi",
+        "links": [
+            "https://coinrexbi.com/"
+        ],
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "remarks": "У Finansinspektionen есть основания подозревать, что Buxine Assets предоставляет инвестиционные услуги финансовыми инструментами как в Финляндии, так и в других странах без надлежащего разрешения.",
+        "date_publish": "17 March 2022",
+        "name": "https://www.sortbend.com/",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "links": [
+            "https://www.sortbend.com/"
+        ],
+        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством.",
+        "date_publish": "27 August 2021",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "name": "ADVANTIUM",
+        "links": [
+            "Limited"
+        ],
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "date_publish": "13 August 2021",
+        "name": "Vaultax Global Limited",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "date_publish": "16 June 2021",
+        "name": "LBLV.COM",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "date_publish": "28 May 2021",
+        "name": "Northern Sea Trading",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "date_publish": "26 May 2021",
+        "name": "Capital of Focus",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "date_publish": "24 May 2021",
+        "name": "ABBINVEST",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "date_publish": "23 June 2021",
+        "name": "Glaremarkets",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "date_publish": "15 June 2021",
+        "name": "Union",
         "links": [
             "FX"
         ],
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством.",
-        "date_publish": "11 August 2023",
         "type": "black_list",
         "Country": "Finland"
     },
     {
-        "name": "Lucreberg.com",
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством.",
-        "date_publish": "4 May 2023",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "26 May 2021",
+        "name": "Silver Lining Asset Management Oy (clone)",
         "type": "black_list",
         "Country": "Finland"
     },
     {
-        "name": "Stockxmine",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "24 May 2021",
+        "name": "Tremisa",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
         "links": [
-            "https://www.stockxmine.com/"
+            "Ltd"
         ],
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством.",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "24 May 2021",
         "type": "black_list",
         "Country": "Finland"
     },
     {
-        "date_publish": "7 February 2023",
-        "name": "Binetrix",
-        "links": [
-            "https://binetrix.com/"
-        ],
+        "name": "OFXB",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "19 May 2021",
         "type": "black_list",
         "Country": "Finland"
     },
     {
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством.",
-        "date_publish": "30 November 2022",
+        "date_publish": "18 May 2021",
+        "name": "https://trade.capitaloffocus.com/trade",
         "links": [
-            "https://bothnia-international.eu/en/index.html"
-        ],
-        "type": "black_list",
-        "Country": "Finland"
-    },
-    {
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством, а компания помирает информация о страховой компании Botnia International.",
-        "date_publish": "31 October 2022",
-        "links": [
-            "https://grinderpartnersoy.com"
+            "https://trade.capitaloffocus.com/trade"
         ],
         "type": "black_list",
         "Country": "Finland"
     },
     {
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством, и компания неправильно выпускает информацию о финской компании.",
-        "date_publish": "13 July 2023",
-        "name": "Nuibilo",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "15 March 2021",
+        "name": "https://www.northernhedgefund.com",
         "type": "black_list",
         "Country": "Finland"
     },
     {
         "links": [
-            "Nuibilo.com"
+            "https://www.northernhedgefund.com"
         ],
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством.",
-        "date_publish": "22 March 2023",
+        "remarks": "FIN-FSA имеет причина подозревать, что северный хедж-фонд предоставляет инвестиционные услуги финансовыми инструментами как в Финляндии, так и на трансграничной основе без соответствующего разрешения.",
+        "date_publish": "25 January 2021",
         "type": "black_list",
         "Country": "Finland"
     },
     {
+        "name": "unitestocks.com",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "18 January 2021",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "name": "Askemarket",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "19 May 2021",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "name": "MCF Corporate Finance Oy (clone)",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "26 April 2021",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "name": "OFXB Forex Broker",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "25 January 2021",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "name": "trader-capital.com",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "21 January 2021",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "name": "Dundee Wealth Management AG",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "18 January 2021",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "name": "CFG",
         "links": [
-            "www.equityglobalsinc.com"
+            "Trades"
         ],
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством.",
-        "date_publish": "2 February 2023",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
         "type": "black_list",
         "Country": "Finland"
     },
     {
-        "name": "Phoenixfoundationoy.com",
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством, и компания неправильно выпускает информацию о финской компании.",
-        "date_publish": "18 November 2022",
+        "date_publish": "18 January 2021",
+        "name": "Inter Media Ltd",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
         "type": "black_list",
         "Country": "Finland"
     },
     {
-        "name": "https://www.summa-capitaloy.com/",
+        "date_publish": "23 December 2020",
+        "name": "WinnGroups",
         "links": [
-            "https://www.summa-capitaloy.com/"
+            "Capital"
         ],
-        "remarks": "У FIN-FSA есть причина подозревать, что компания является мошенничеством, и компания неправильно выпускает информацию о финской компании.",
         "type": "black_list",
         "Country": "Finland"
     },
     {
-        "date_publish": "22 September 2022",
-        "name": "Interestverse",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "26 November 2020",
+        "name": "Wiseling",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
         "links": [
-            "FX"
+            "Oy"
+        ],
+        "remarks": "FIN-FSA имеет причина подозревать, что Wiseling OY предоставляет инвестиционные услуги финансовыми инструментами как в Финляндии, так и на трансграничной основе без соответствующего разрешения.",
+        "date_publish": "31 August 2020",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "name": "Kasimayari",
+        "links": [
+            "Group"
+        ],
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "date_publish": "8 June 2020",
+        "name": "WDC",
+        "links": [
+            "Markets"
+        ],
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "12 January 2021",
+        "name": "Konstos Markets Ltd (Stocklux)",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "15 December 2020",
+        "name": "Skycapital",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "links": [
+            "Ltd"
+        ],
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "date_publish": "30 September 2020",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "name": "Blockchain",
+        "links": [
+            "Ltd"
+        ],
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "date_publish": "15 July 2020",
+        "name": "WorldMarkets.com",
+        "remarks": "У FIN-FSA есть основания подозревать, что компания предлагает инвестиционные услуги в Финляндии без соответствующего разрешения.",
+        "type": "black_list",
+        "Country": "Finland"
+    },
+    {
+        "date_publish": "11 May 2020",
+        "name": "OFC",
+        "links": [
+            "Markets"
         ],
         "type": "black_list",
         "Country": "Finland"
